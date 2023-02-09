@@ -1,0 +1,71 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block title %}
+<title>Indian_shop | Cart Page</title>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <h5 class="background text-dark text-center p-1 mt-2">Cart Page</h5>
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped table-hover">
+            <tr>
+                <th></th>
+                <th>Name</th>
+                <th>Color</th>
+                <th>Size</th>
+                <th>Price</th>
+                <th></th><!--it is blank for putting button-->
+                <th>Qty</th>
+                <th></th>
+                <th>Total</th>
+                <th>Maincategory</th>
+                <th>Subcategory</th>
+                <th>Brand</th>
+                <th></th>
+            </tr>
+            {% for i in cart %}<!--data is coming to array or list which we took empty and after that adding-->
+            <tr><!--(i.pic) it is not pic name, it is the key name of cart data, pic1 is already taken in views page key (pic1.url)-->
+                <td><img src="{{i.pic}}" width="80px" height="65px" class="rounded" alt=""></td>
+                <td>{{i.name}}</td>
+                <td>{{i.color}}</td>
+                <td>{{i.size}}</td>
+                <td>{{i.price}}</td>
+                <td><a href="/update-cart/{{i.pid}}/dec"><i class="bi bi-dash fs-4"></i></a></td><!--this is bootsrap icon-->
+                <td>{{i.qty}}</td>
+                <td><a href="/update-cart/{{i.pid}}/inc"><i class="bi bi-plus fs-4"></i></a></td><!--this is bootsrap icon-->
+                <td>{{i.total}}</td>
+                <td>{{i.maincategory}}</td>
+                <td>{{i.subcategory}}</td>
+                <td>{{i.brand}}</td>
+                <td><a href="/delete-cart/{{i.pid}}"><i class="bi bi-trash "></i></a></td><!--this is bootsrap icon-->
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-12"></div>
+        <div class="col-md-6 col-12">
+            <table class="table table-bordered table-striped table-hover">
+                <tr><!--this data for showing total amount, shipping amount and final amount-->
+                    <th>Total Amount</th>
+                    <td>&#8377;{{total}}</td>
+                </tr>
+                <tr>
+                    <th>Shipping Amount</th>
+                    <td>&#8377;{{shipping}}</td>
+                </tr>
+                <tr>
+                    <th>Final Amount</th>
+                    <td>&#8377;{{final}}</td>
+                </tr>
+                <tr>
+                    {% if final %}<!--this condition for that if you select any product then checkout button will show otherwise checkout button will be invisibled-->
+                    <th colspan="2"><a href="/checkout/" class="btn w-100 background text-dark text-center">Checkout</a></th>
+                    {% endif %}
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

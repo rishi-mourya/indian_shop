@@ -1,0 +1,38 @@
+.background{
+    background-color: gold;
+    
+}
+
+.btn:hover{
+    background-color: rgb(10, 198, 231); 
+}
+
+
+.banner-section{
+    position: relative;
+}
+.banner-btn{
+    width: 250px;
+    position: absolute; 
+    left: 100px;
+    padding: 15px;
+}
+.banner-btn:hover{
+    box-shadow: 0 0 10px black;
+    
+}
+
+#banner-btn1{
+    top: 25%;
+}
+
+#banner-btn2{
+    top: 45%;
+}
+#banner-btn3{
+    top: 65%;
+}
+
+.headerfont,.text-dark{
+    font-weight: 500;
+}

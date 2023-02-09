@@ -1,0 +1,36 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block title %}
+<title>indian_shop | forget-OTP Page</title>
+{% endblock %}
+
+
+{% block content %}
+<div class="container-fluid mt-3">
+    <div class="row my-5">
+        <div class="col-md-2 col-1"></div>
+        <div class="col-md-8 col-10">
+            <h5 class="background text-dark p-2 text-center">Forget Password Section</h5>
+            {% for i in messages %}
+            <div class="alert alert-danger alert-dismissible fade show text-center p-4" role="alert">
+                {{i}}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {% endfor %}
+            <form method="post" action="">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label class="form-label">OTP</label>
+                    <input type="number" name="otp" class="form-control" placeholder="Enter OTP which is sent to Your Registered Email Address">
+
+                </div>
+                <button type="submit" class="btn background text-dark w-100 mybtn fs-5">Reset Password</button>
+            </form>
+            
+        </div>
+        <div class="col-md-2 col-1"></div>
+    </div>
+</div>
+
+
+{% endblock %}

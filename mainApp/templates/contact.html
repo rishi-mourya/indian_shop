@@ -1,0 +1,77 @@
+{% extends "index.html" %}
+{% block title %}
+<title>Indian_shop | Contact Page</title>
+{% endblock %}
+{% load static %}
+
+
+{% block content %}
+
+<div class="container-fluid my-2">
+    <div class="row">
+        <div class="col-md-6 col-12">
+            <h4 class="background text-dark text-center p-1 ">Google Map on Bottom For Track Us</h4>
+            <table class="table table-bordered table-striped table-hover">
+                <tr>
+                    <th>Name</th>
+                    <td>Rishi Mourya</td>
+                </tr>
+                <tr>
+                    <th>Email-id</th>
+                    <td>rishi.kr.mbd@gmail.com</td>
+                </tr>
+                <tr>
+                    <th>Phone</th>
+                    <td>7617518700</td>
+                </tr>
+            </table>
+            <img src="{% static 'images/rishi_mourya.jpg' %}" height="470px" width="100%" alt="">
+        </div>
+        <div class="col-md-6 col-12">
+            <h4 class="background text-dark text-center p-1">Contact Page</h4>
+            {% for i in messages %}
+            
+            <div class="alert alert-success text-center alert-dismissible fade show" role="alert">
+                {{i}}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            
+            {% endfor %}
+            <form method='post'action="">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label class="form-label ">Name</label>
+                    <input class="form-control" type="text" required name="name" placeholder="Enter Your Name:">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label ">Email-id</label><!--form label class for gap between input and label-->
+                    <input class="form-control" type="email" required name="email" placeholder="Enter Your Email:"><!--from control adjust width and design automatically-->
+                </div>
+                <div class="mb-3">
+                    <label class="form-label ">Phone</label>
+                    <input class="form-control" type="text" required name="phone" placeholder="Enter Your Number:">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label ">Subject</label>
+                    <input class="form-control" type="text" required name="subject" placeholder="Enter Your Subject:">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label ">Message</label>
+                    <textarea name="message" rows="7" class="form-control"></textarea>
+                </div>
+                <div class="mb-3">
+                    <button class="btn background text-dark w-100 " type="submit">Submit</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+    <!--This is google map for exact your location-->
+    <div class="mapouter"><div class="gmap_canvas"><iframe width="100%" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=Prakash%20Nagar%20Shankar%20Nagar,%20Chiriya%20Tola,%20Line%20Par,%20Moradabad,%20Uttar%20Pradesh%20244103&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe></div></div>
+</div>
+<!--search on google 'embed google map' or click on 'www.embedgooglemap.net' find your location and click on Get HTML Code and paste here-->
+<!--add text links can be deleted so delete all links-->
+
+<!--google map website is free-->
+
+{% endblock %}

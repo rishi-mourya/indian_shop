@@ -1,0 +1,61 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block title %}
+<title>Indian_shop | Signup Page</title>
+{% endblock %}
+
+
+{% block content %}
+<div class="container-fluid mt-2">
+    <div class="row my-5">
+        <div class="col-md-2 col-1"></div>
+        <div class="col-md-8 col-10">
+            <h5 class="background text-dark w-100 text-center p-2">Signup Page</h5>
+            {% for i in messages %}
+            <div class="alert alert-danger alert-dismissible fade show text-center p-4" role="alert">
+                {{i}}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {% endfor %}
+            <form method="post" action="">
+                {% csrf_token %}
+                <div class="row mb-3">
+                    <div class="mb-3 col-md-6 col-12">
+                        <label class="form-label">Full Name</label>
+                        <input type="text" required class="form-control" name="name" placeholder="Enter Your Full Name">
+                    </div>
+                    <div class="mb-3 col-md-6 col-12">
+                        <label class="form-label">Username</label>
+                        <input type="text" required class="form-control" name="username" placeholder="Enter Your Username ">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="mb-3 col-md-6 col-12">
+                        <label class="form-label">Email-Id</label>
+                        <input type="email" required class="form-control" name="email" placeholder="Enter Your Email ">
+                    </div>
+                    <div class="mb-3 col-md-6 col-12">
+                        <label class="form-label">Phone</label>
+                        <input type="text" required class="form-control" name="phone" placeholder="Enter Your Phone ">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="mb-3 col-md-6 col-12">
+                        <label class="form-label">Password</label>
+                        <input type="password" required class="form-control" name="password" placeholder="Enter Password">
+                    </div>
+                    <div class="mb-1 col-md-6 col-12">
+                        <label class="form-label">Confirm Password</label>
+                        <input type="password" required class="form-control" name="cpassword" placeholder="Confirm Password ">
+                    </div>
+        
+                </div>
+
+                <button type="submit" class="btn background text-dark text-center w-100">Create Account</button>
+            </form>
+            <a href="/login/" class="text-decoration-none">Already User? Login to Your account</a>
+        </div>
+        <div class="col-md-2 col-1"></div>
+    </div>
+</div>
+{% endblock %}
