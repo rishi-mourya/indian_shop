@@ -118,7 +118,7 @@ def signupPage(Request):  # 4 step
                         message = f'Thank You to Create Your Account With us, Now You Can Buy Our Lattest Products : Team Indian_shop'# sending email for inform signup successfully
                         email_from = settings.EMAIL_HOST_USER
                         recipient_list = [b.email,]# whom do you want to send email ? "b.email" because b is Buyer
-                        send_mail( subject, message, email_from, recipient_list )#No change
+                        send_mail( subject, message, email_from, recipient_list)#No change
                         return redirect('/login/')
                     
                     else:  # if username is already taken on signup time!!
@@ -359,7 +359,7 @@ def orderPage(Request):# 16 step
             message = 'Thank You to Shop with us,Now Your Order has been placed. You Can Track Your Order on Profile Page.\n\nAny Query:\nEmail-id- rishithebackend@gmail.com'# sending email for infrom order placed
             email_from = settings.EMAIL_HOST_USER
             recipient_list = [user.email,]# whom do you want to send email ? "user.email" user means Buyer
-            send_mail( subject, message, email_from, recipient_list )#No change
+            send_mail( subject, message, email_from, recipient_list)#No change
             
             if(mode=="COD"):#checking mode of payment from checkout page    
                 return redirect("/confirmation/")
@@ -424,7 +424,7 @@ def contactPage(Request):# 18 step
             message = f'{c.name.capitalize()} has one Query for You.\n{c.name.capitalize()}\n{c.email.capitalize()}\n{c.phone.capitalize()}\n{c.subject.capitalize()}\n{c.message.capitalize()}\n\nThank Your Receving Indian_shop Contact Query!!!'#this is for send contact query in Admin page
             email_from = settings.EMAIL_HOST_USER
             recipient_list = ['rishithebackend@gmail.com',]# this email for receiving contact Query in Admin email
-            send_mail( subject, message, email_from, recipient_list )#No change
+            send_mail( subject, message, email_from, recipient_list)#No change
             
             messages.success(Request,"Thank you to Share Your Feedback with Us! Our Team will Contact You Soon!!")
         else: 
@@ -463,7 +463,7 @@ def forgetUsername(Request):#20 step ...Email process starts
                 message = 'OTP for Password Reset is '+str(otp)+' : Team Indian_shop.'# OTP needs to convert string formate for sending email
                 email_from = settings.EMAIL_HOST_USER
                 recipient_list = [buyer.email,]# whom do you want to send email ? "buyer.email"
-                send_mail( subject, message, email_from, recipient_list )#No change
+                send_mail( subject, message, email_from, recipient_list)#No change
                 Request.session['resetuser']=username#this is for save username for otp accepting time
                 
                 return redirect('/forget-otp/') # OTP section             
