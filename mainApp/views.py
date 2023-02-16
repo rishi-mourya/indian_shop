@@ -102,13 +102,13 @@ def signupPage(Request):  # 4 step
 
             if p == cp:  # check password and confirm password is correct or not
                 if len(p)>=8:
-                    try:  # check username is taken or not
-                        b = Buyer()
-                        b.name = Request.POST.get('name')
-                        b.username = Request.POST.get('username')
-                        b.email = Request.POST.get('email')
-                        b.phone = phone
-                        user = User(username=b.username, email=b.email)  # User Already in library
+                    b = Buyer()
+                    b.name = Request.POST.get('name')
+                    b.username = Request.POST.get('username')
+                    b.email = Request.POST.get('email')
+                    b.phone = phone
+                    user = User(username=b.username, email=b.email)  # User Already in library
+                    if user:  # check username is taken or not
                         user.set_password(p)#after username and email/set password keyword
                         user.save()  # we are creating 2 accounts USER and BUYER
                         b.save()  # Buyer details is saving
@@ -121,7 +121,7 @@ def signupPage(Request):  # 4 step
                         send_mail( subject, message, email_from, recipient_list )#No change
                         return redirect('/login/')
                     
-                    except:  # if username is already taken on signup time!!
+                    else:  # if username is already taken on signup time!!
                         messages.error(Request, "Username is already taken!!!")
                         
                 else:#if password length is not greater than 8
