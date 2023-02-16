@@ -127,7 +127,9 @@ EMAIL_HOST = 'smtp.gmail.com'#this is a gmail code ,yahoo code is different so i
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'rishithebackend@gmail.com'#sender's email-id, which email will send message to Buyers
-EMAIL_HOST_PASSWORD = 'oobseqqenyvtwlxg'#No need to write your original password but your email 2 step verfication option must be 'YES' check on email, manage account, go to Security
+DEFAULT_FROM_EMAIL = 'rishithebackend@gmail.com'
+SERVER_EMAIL = 'rishithebackend@gmail.com'
+EMAIL_HOST_PASSWORD = 'kbsawrngqldohpgo'#No need to write your original password but your email 2 step verfication option must be 'YES' check on email, manage account, go to Security
 #this password will get on email,manage account,app password, select bottom options, 1 main,2 window(computers), get a password ,copy and paste here
 
 
